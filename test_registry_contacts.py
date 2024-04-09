@@ -11,6 +11,7 @@ class TestRegistryContacts(TestCaseUI):
         AuthPage(cls.driver).auth(cls.config.get('USER_LOGIN'), cls.config.get('USER_PASSWORD'))
         cls.page = ContactsRegistry(cls.driver)
         cls.message = cls.config.get('USER_MESSAGE')
+        cls.root = cls.config.get('MESSAGES_ROOT')
 
     def setUp(self):
         self.browser.open(self.config.get('SITE_CONTACTS'))
@@ -19,13 +20,12 @@ class TestRegistryContacts(TestCaseUI):
     def test_01_checking_movement(self):
 
         folder = 'Папка для перемещения'
-        root = 'Все сообщения'
 
         log('Перейти в папку. '
             'Проверить количество диалогов в папке, папка должна быть пустая')
         self.page.folders.row(contains_text=folder).click()
         self.page.messages_dialogs.check_size(0)
-        self.page.folders.row(contains_text=root).click()
+        self.page.folders.row(contains_text=self.root).click()
 
         log('Перемещение сообщения')
         self.page.move_message(self.message, folder)
@@ -38,7 +38,7 @@ class TestRegistryContacts(TestCaseUI):
 
         log('Вернуть сообщение обратно в корень. '
             'Проверяем, что папка снова пустая')
-        self.page.move_message(self.message, root)
+        self.page.move_message(self.message, self.root)
         self.page.messages_dialogs.check_size(0)
 
     def test_02_checking_message_date(self):
@@ -53,3 +53,26 @@ class TestRegistryContacts(TestCaseUI):
 
         log('Проверить дату сообщения в Чатах')
         self.page.check_message_date(self.page.messages_chats, self.message, date)
+
+    def test_03_checking_tag_message(self):
+
+        tag = 'Тег для автотеста'
+
+        log('Перейти в папку с тегом. '
+            'Проверить количество диалогов в папке с тегом, папка должна быть пустая')
+        self.page.tags.item(contains_text=tag).click()
+        self.page.messages_dialogs.check_size(0)
+        self.page.close_tag.click()
+
+        log('Пометить сообщение эталонным тегом')
+        self.page.put_or_drop_tag(self.message, tag)
+
+        log('Проверить, что тег появился на сообщении, а в папке с тегом должно быть 1 сообщение')
+        self.page.check_tag_name_message(tag)
+        self.page.tags.item(contains_text=tag).click()
+        self.page.messages_dialogs.check_size(1)
+
+        log('Снять тег. '
+            'Проверить, что папка с тегом снова пустая')
+        self.page.put_or_drop_tag(self.message, tag)
+        self.page.messages_dialogs.check_size(0)

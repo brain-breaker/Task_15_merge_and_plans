@@ -9,4 +9,6 @@ ELEMENT_OUTPUT_LOG = "user_friendly"
 SITE_CONTACTS = "https://fix-online.sbis.ru/page/dialogs"
 USER_LOGIN = "разноеАпи"
 USER_PASSWORD = "разноеАпи123"
+
 USER_MESSAGE = "Сообщение для перемещения"
+MESSAGES_ROOT = 'Все сообщения'

@@ -1,0 +1,12 @@
+[GENERAL]
+BROWSER = "chrome"
+DO_NOT_RESTART = true
+SOFT_RESTART = false
+ELEMENT_OUTPUT_LOG = "user_friendly"
+# WAIT_ELEMENT_LOAD = 20
+
+[CUSTOM]
+SITE_CONTACTS = "https://fix-online.sbis.ru/page/dialogs"
+USER_LOGIN = "разноеАпи"
+USER_PASSWORD = "разноеАпи123"
+USER_MESSAGE = "Сообщение для перемещения"

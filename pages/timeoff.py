@@ -47,11 +47,14 @@ class Dialog(DocumentTemplate):
         self.choose_date.click()
         self.date_window.set_period(date)
 
-    def select_time(self, start_time_str, end_time_str):
+    def select_time(self, start_time, end_time):
         """Выбираем время
-        :param start_time_str: время начала отгула в формате строки 'ЧЧММ'
-        :param end_time_str: время окончания отгула в формате строки 'ЧЧММ'
+        :param start_time: время начала отгула в формате 'ЧЧ:ММ'
+        :param end_time: время окончания отгула в формате 'ЧЧ:ММ'
         """
+
+        start_time_str = ''.join(start_time.split(':'))
+        end_time_str = ''.join(end_time.split(':'))
 
         self.choose_time.click()
         self.start_time_tf.set_absolute_position()
@@ -89,9 +92,9 @@ class Dialog(DocumentTemplate):
 
         self.employee_cl.should_be(ExactText(employee))
         self.reason_re.should_be(ExactText(reason))
-        self.date_tf.should_be(Attribute(**{'value': date}))
-        self.start_time_tf.should_be(Attribute(**{'value': start_time}))
-        self.end_time_tf.should_be(Attribute(**{'value': end_time}))
+        self.date_tf.should_be(Attribute(value=date))
+        self.start_time_tf.should_be(Attribute(value=start_time))
+        self.end_time_tf.should_be(Attribute(value=end_time))
 
     def delete_timeoff(self):
         """Удалить отгул"""

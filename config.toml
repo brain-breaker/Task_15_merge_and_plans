@@ -1,0 +1,11 @@
+[GENERAL]
+BROWSER = "chrome"
+DO_NOT_RESTART = true
+SOFT_RESTART = false
+ELEMENT_OUTPUT_LOG = "user_friendly"
+SITE = "https://fix-online.sbis.ru/"
+
+[CUSTOM]
+SITE_EWS_DOCUMENTS = "https://fix-online.sbis.ru/page/work-schedule-documents"
+USER_LOGIN = "разноеАпи"
+USER_PASSWORD = "разноеАпи123"

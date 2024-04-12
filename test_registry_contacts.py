@@ -1,4 +1,4 @@
-from atf import *
+from atf import log
 from atf.ui import *
 from pages.auth_page import AuthPage
 from pages.contacts_page import ContactsRegistry
@@ -8,13 +8,14 @@ class TestRegistryContacts(TestCaseUI):
 
     @classmethod
     def setUpClass(cls):
+        cls.browser.open(cls.config.get('SITE'))
         AuthPage(cls.driver).auth(cls.config.get('USER_LOGIN'), cls.config.get('USER_PASSWORD'))
         cls.page = ContactsRegistry(cls.driver)
         cls.message = cls.config.get('USER_MESSAGE')
         cls.root = cls.config.get('MESSAGES_ROOT')
 
     def setUp(self):
-        self.browser.open(self.config.get('SITE_CONTACTS'))
+        ContactsRegistry(self.driver).open_contacts()
         self.page.check_load()
 
     def test_01_checking_movement(self):

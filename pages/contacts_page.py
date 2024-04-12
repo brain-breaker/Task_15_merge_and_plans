@@ -1,3 +1,4 @@
+from atf import log
 from atf.ui import *
 from controls import *
 
@@ -14,6 +15,13 @@ class ContactsRegistry(Region):
     select_tag = ControlsListView(By.CSS_SELECTOR, '.msg-tags-aggregate__tags .controls-ListViewV', 'Выбор тега')
     move_window = ControlsMoveDialog()
     tabs = ControlsTabsButtons()
+
+    def open_contacts(self):
+        """Открытие реестра Контакты"""
+
+        log('Переходим в реестр Контакты')
+        self.browser.open(self.config.get('SITE_CONTACTS'))
+        self.check_page_load_wasaby()
 
     def check_load(self):
         """Проверка загрузки реестра"""

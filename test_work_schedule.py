@@ -1,8 +1,8 @@
-from datetime import date, timedelta
+from datetime import date
 from atf import log, info
 from atf.ui import *
-from pages.auth_page import AuthPage
-from pages.work_schedule_documents import WorkScheduleDocuments
+from pages.AuthPage import AuthPage
+from pages.saby_pages.WorkScheduleDocuments import WorkScheduleDocuments
 
 
 class TestWorkScheduleDocuments(TestCaseUI):

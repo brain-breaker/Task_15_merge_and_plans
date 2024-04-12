@@ -1,10 +1,11 @@
 from atf.ui import *
 from controls import *
-from pages.selectionNew import Stack
+from pages.libraries.Staff.selectionNew import Stack
 
 
 @templatename("WorkTimeDocuments/timeoff:Dialog")
 class Dialog(DocumentTemplate):
+    """Карточка отгула"""
 
     employee_cl = ControlsLookupInput(By.CSS_SELECTOR, '[data-qa="staff-Lookup__input"]', 'Сотрудник', catalog=Stack)
     reason_re = RichEditorExtendedEditor()

@@ -22,7 +22,7 @@ class WorkScheduleDocuments(Region):
 
         :param regulation: подпункты меню
         """
-        from pages.timeoff import Dialog
+        from pages.libraries.WorkTimeDocuments.timeoff import Dialog
 
         self.create_btn.select(*regulation)
         timeoff_card = Dialog(self.driver)

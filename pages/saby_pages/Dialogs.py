@@ -3,7 +3,7 @@ from atf.ui import *
 from controls import *
 
 
-class ContactsRegistry(Region):
+class Dialogs(Region):
     """Реестр Контакты"""
 
     folders = ControlsTreeGridView()

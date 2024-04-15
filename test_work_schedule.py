@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 from atf import log, info
 from atf.ui import *
 from pages.AuthPage import AuthPage
@@ -12,8 +12,8 @@ class TestWorkScheduleDocuments(TestCaseUI):
         cls.browser.open(cls.config.get('SITE'))
         AuthPage(cls.driver).auth(cls.config.get('USER_LOGIN'), cls.config.get('USER_PASSWORD'))
         cls.timeoff_page = WorkScheduleDocuments(cls.driver)
-        # cls.tomorrow_date = (date.today() + timedelta(days=1)).strftime('%d.%m.%y')
-        cls.tomorrow_date = date(2024, 4, 15).strftime('%d.%m.%y')
+        cls.tomorrow_date = (date.today() + timedelta(days=1)).strftime('%d.%m.%y')
+        # cls.tomorrow_date = date(2024, 4, 15).strftime('%d.%m.%y')
 
     def setUp(self):
         WorkScheduleDocuments(self.driver).open_ews_documents()

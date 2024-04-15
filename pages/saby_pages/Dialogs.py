@@ -4,7 +4,7 @@ from controls import *
 
 
 class Dialogs(Region):
-    """Реестр Контакты"""
+    """Вкладка Диалоги в реестре Контакты"""
 
     folders = ControlsTreeGridView()
     messages_dialogs = ControlsListView(By.CSS_SELECTOR, '.msg-dialogs-detail .controls-ListViewV', 'Диалоги')
@@ -16,15 +16,15 @@ class Dialogs(Region):
     move_window = ControlsMoveDialog()
     tabs = ControlsTabsButtons()
 
-    def open_contacts(self):
-        """Открытие реестра Контакты"""
+    def open_dialogs(self):
+        """Открытие вкладки Диалоги"""
 
-        log('Переходим в реестр Контакты')
-        self.browser.open(self.config.get('SITE_CONTACTS'))
+        log('Переходим во вкладку Диалоги в реестре Контакты')
+        self.browser.open(self.config.get('SITE_DIALOGS'))
         self.check_page_load_wasaby()
 
     def check_load(self):
-        """Проверка загрузки реестра"""
+        """Проверка загрузки вкладки Диалоги"""
 
         self.folders.check_load()
         self.messages_dialogs.check_load()

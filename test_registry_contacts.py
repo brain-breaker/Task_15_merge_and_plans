@@ -15,7 +15,7 @@ class TestRegistryContacts(TestCaseUI):
         cls.root = cls.config.get('MESSAGES_ROOT')
 
     def setUp(self):
-        Dialogs(self.driver).open_contacts()
+        Dialogs(self.driver).open_dialogs()
         self.page.check_load()
 
     def test_01_checking_movement(self):

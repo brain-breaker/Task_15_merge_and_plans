@@ -6,8 +6,9 @@ ELEMENT_OUTPUT_LOG = "user_friendly"
 SITE = "https://fix-online.sbis.ru/"
 
 [CUSTOM]
-SITE_CONTACTS = "https://fix-online.sbis.ru/page/dialogs"
+SITE_DIALOGS = "https://fix-online.sbis.ru/page/dialogs"
 SITE_EWS_DOCUMENTS = "https://fix-online.sbis.ru/page/work-schedule-documents"
+SITE_PLANS = "https://fix-online.sbis.ru/page/plans"
 USER_LOGIN = "разноеАпи"
 USER_PASSWORD = "разноеАпи123"
 
